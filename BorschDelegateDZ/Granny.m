@@ -21,10 +21,12 @@
     if (self.borschDelegate)
     {
         NSLog(@"Trying to say grandson about borsch");
-        if ([self.borschDelegate borschServed])
+        if ([self.borschDelegate borschServed: [NSDate new]])
         {
-            NSLog(@"Grandson has finished eating borsch");
+            NSLog(@"Ok, I am going to wash the dishes");
             [self washDishes];
+        } else {
+            NSLog(@"No reason to wash the dishes");
         }
     }
 }

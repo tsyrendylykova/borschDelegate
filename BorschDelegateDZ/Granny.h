@@ -20,6 +20,6 @@
 /**
  Приготовить и подать обед.
  */
--(void)serveLunch;
+- (void)serveLunch;
     
 @end

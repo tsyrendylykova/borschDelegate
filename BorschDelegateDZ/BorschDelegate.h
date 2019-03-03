@@ -21,6 +21,6 @@
  @return признак был съеден борщ или нет.
  */
     
-- (BOOL)borschServed;
+- (BOOL)borschServed: (NSDate *)date;
 
 @end
