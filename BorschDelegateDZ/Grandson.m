@@ -16,14 +16,13 @@
     // есть борщ при соблюдении условия
     // сообщить нужно ли мыть посуду, если борщ был съеден
     
-    NSLog(@"%@", date);
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
     NSInteger hour = [components hour];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:MM"];
-    NSString *timeString = [formatter stringFromDate:date];
+    [formatter setTimeZone:[NSTimeZone localTimeZone]];
+    [formatter setDateFormat:@"HH:mm"];
     
     NSLog(@"Grandson has known about borsch");
     NSLog(@"Waiting for decision...");
@@ -37,7 +36,7 @@
         return YES;
     } else {
         NSLog(@"Failure!!!");
-        NSLog(@"No, thanks! I`m not going eat borsch at %@", timeString);
+        NSLog(@"No, thanks! I`m not going eat borsch at %@", [formatter stringFromDate:[NSDate date]]);
         return NO;
     }
 }
