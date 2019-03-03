@@ -20,7 +20,10 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
     NSInteger hour = [components hour];
-    NSInteger minutes = [components minute];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:MM"];
+    NSString *timeString = [formatter stringFromDate:date];
     
     NSLog(@"Grandson has known about borsch");
     NSLog(@"Waiting for decision...");
@@ -34,7 +37,7 @@
         return YES;
     } else {
         NSLog(@"Failure!!!");
-        NSLog(@"No, thanks! I`m not going eat borsch at %ld:%ld", hour, minutes);
+        NSLog(@"No, thanks! I`m not going eat borsch at %@", timeString);
         return NO;
     }
 }
